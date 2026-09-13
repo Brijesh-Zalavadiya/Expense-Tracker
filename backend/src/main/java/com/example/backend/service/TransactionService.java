@@ -46,6 +46,14 @@ public class TransactionService {
         if(updatedTransaction.getTransactionDate()!=null){
             existingTransaction.setTransactionDate(updatedTransaction.getTransactionDate());
         }
+
+        if(updatedTransaction.getCategory()!=null){
+            existingTransaction.setCategory(updatedTransaction.getCategory());
+        }
+
+        if(updatedTransaction.getUser()!=null){
+            existingTransaction.setUser(updatedTransaction.getUser());
+        }
         return transactionRepository.save(existingTransaction);
     }
 
