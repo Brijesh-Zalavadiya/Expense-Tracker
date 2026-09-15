@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
 
+import com.example.backend.dto.TransactionRequestDTO;
+import com.example.backend.dto.TransactionResponseDTO;
 import com.example.backend.entity.Transaction;
 import com.example.backend.service.TransactionService;
 import org.springframework.web.bind.annotation.*;
@@ -18,22 +20,22 @@ public class TransactionController {
     }
 
     @GetMapping
-    public List<Transaction> getAllTransaction(){
+    public List<TransactionResponseDTO> getAllTransaction(){
         return transactionService.getAllTransactions();
     }
 
     @GetMapping("/{id}")
-    public Transaction getTransaction(@PathVariable Long id){
+    public TransactionResponseDTO getTransaction(@PathVariable Long id){
         return transactionService.getTransactionById(id);
     }
 
     @PostMapping
-    public Transaction addTransaction(@RequestBody Transaction transaction){
-        return transactionService.addTransaction(transaction);
+    public TransactionResponseDTO addTransaction(@RequestBody TransactionRequestDTO dto){
+        return transactionService.addTransaction(dto);
     }
 
     @PatchMapping("/{id}")
-    public Transaction updateTransaction(@PathVariable Long id, @RequestBody Transaction transaction){
+    public TransactionResponseDTO updateTransaction(@PathVariable Long id, @RequestBody Transaction transaction){
         return transactionService.updateTransaction(id, transaction);
     }
 

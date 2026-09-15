@@ -1,33 +1,11 @@
-package com.example.backend.entity;
+package com.example.backend.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "users")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class UserRequestDTO {
     private String name;
     private String email;
     private String password;
 
-    public User(){}
-
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public UserRequestDTO(){
     }
 
     public String getName() {
