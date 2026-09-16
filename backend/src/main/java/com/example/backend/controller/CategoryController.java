@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
+import com.example.backend.dto.CategoryRequestDTO;
 import com.example.backend.dto.CategoryResponseDTO;
+import com.example.backend.entity.Category;
 import com.example.backend.entity.TransactionType;
 import com.example.backend.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping()
+    @GetMapping
     public List<CategoryResponseDTO> getAllCategory(){
         return categoryService.getAllCategory();
     }
@@ -26,4 +28,15 @@ public class CategoryController {
     public List<CategoryResponseDTO> getByType(@PathVariable TransactionType type){
         return categoryService.getByType(type);
     }
+
+    @PostMapping
+    public CategoryResponseDTO addCategory(@RequestBody CategoryRequestDTO dto){
+        return categoryService.addCategory(dto);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteCategory(@PathVariable Long id){
+        return categoryService.deleteCategory(id);
+    }
+
 }
