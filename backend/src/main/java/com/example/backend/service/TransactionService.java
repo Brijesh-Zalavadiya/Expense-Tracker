@@ -6,6 +6,7 @@ import com.example.backend.entity.Category;
 import com.example.backend.entity.Transaction;
 
 import com.example.backend.entity.User;
+import com.example.backend.exception.ResourceNotFoundException;
 import com.example.backend.repository.CategoryRepository;
 import com.example.backend.repository.TransactionRepository;
 import com.example.backend.repository.UserRepository;
@@ -37,16 +38,16 @@ public class TransactionService {
 
     public TransactionResponseDTO getTransactionById(Long id){
         Transaction transaction =  transactionRepository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Transaction not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("Transaction not found"));
 
         return convertToResponseDTO(transaction);
     }
 
     public TransactionResponseDTO addTransaction(TransactionRequestDTO dto){
         User user = userRepository.findById(dto.getUserId())
-                .orElseThrow(()-> new RuntimeException("User not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("User not found"));
         Category category = categoryRepository.findById(dto.getCategoryId())
-                .orElseThrow(()-> new RuntimeException("Category not found"));
+                .orElseThrow(()-> new ResourceNotFoundException("Category not found"));
 
         Transaction transaction = new Transaction();
         transaction.setAmount(dto.getAmount());

@@ -3,18 +3,17 @@ package com.example.backend.service;
 import com.example.backend.dto.CategoryRequestDTO;
 import com.example.backend.dto.CategoryResponseDTO;
 import com.example.backend.entity.Category;
-import com.example.backend.entity.Transaction;
 import com.example.backend.entity.TransactionType;
+import com.example.backend.exception.GlobalExceptionHandler;
+import com.example.backend.exception.ResourceNotFoundException;
 import com.example.backend.repository.CategoryRepository;
-import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoryService {
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
@@ -28,10 +27,6 @@ public class CategoryService {
     }
 
     public List<CategoryResponseDTO> getByType(TransactionType type){
-        if(categoryRepository.findByType(type).isEmpty()){
-            throw new RuntimeException("Category type not found.");
-        }
-
         return categoryRepository.findByType(type)
                 .stream()
                 .map(this::convertToResponse)
@@ -40,7 +35,7 @@ public class CategoryService {
 
     public CategoryResponseDTO getCategoryById(Long id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Category not found"));
 
         return convertToResponse(category);
     }

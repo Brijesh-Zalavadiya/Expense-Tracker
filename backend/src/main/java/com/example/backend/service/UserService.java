@@ -3,9 +3,11 @@ package com.example.backend.service;
 import com.example.backend.dto.UserRequestDTO;
 import com.example.backend.dto.UserResponseDTO;
 import com.example.backend.entity.User;
+import com.example.backend.exception.ResourceNotFoundException;
 import com.example.backend.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.DuplicateFormatFlagsException;
 import java.util.List;
 
 @Service
@@ -18,7 +20,7 @@ public class UserService {
 
     public UserResponseDTO getUserById(Long id){
         User user = userRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("User not found"));
+                .orElseThrow(()->new ResourceNotFoundException("User not found"));
         return convertToUserResponse(user);
     }
 
@@ -31,7 +33,7 @@ public class UserService {
 
     public UserResponseDTO updateUser(Long id, User updatedUser){
         User existingUser = userRepository.findById(id)
-                .orElseThrow(()->new RuntimeException("User not found."));
+                .orElseThrow(()->new ResourceNotFoundException("User not found."));
 
         if(updatedUser.getName()!=null){
             existingUser.setName(updatedUser.getName());
@@ -49,7 +51,7 @@ public class UserService {
 
     public UserResponseDTO signup(UserRequestDTO dto){
         if(userRepository.findByEmail(dto.getEmail()).isPresent()){
-            throw new RuntimeException("Email already registered");
+            throw new DuplicateFormatFlagsException("Email already registered");
         }
 
         User user = new User();
