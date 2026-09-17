@@ -28,6 +28,10 @@ public class CategoryService {
     }
 
     public List<CategoryResponseDTO> getByType(TransactionType type){
+        if(categoryRepository.findByType(type).isEmpty()){
+            throw new RuntimeException("Category type not found.");
+        }
+
         return categoryRepository.findByType(type)
                 .stream()
                 .map(this::convertToResponse)

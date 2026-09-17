@@ -93,6 +93,9 @@ public class TransactionService {
     }
 
     public void deleteTransaction(Long id){
+        if(transactionRepository.findById(id).isEmpty()){
+            throw new RuntimeException("Transaction doesn't exist.");
+        }
         transactionRepository.deleteById(id);
     }
 
