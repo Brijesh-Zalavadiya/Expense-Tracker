@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/categories")
 @CrossOrigin(origins = "http://localhost:5173")
 public class CategoryController {
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -24,9 +24,14 @@ public class CategoryController {
         return categoryService.getAllCategory();
     }
 
-    @GetMapping("/{type}")
+    @GetMapping("/type_{type}")
     public List<CategoryResponseDTO> getByType(@PathVariable TransactionType type){
         return categoryService.getByType(type);
+    }
+
+    @GetMapping("/{id}")
+    public CategoryResponseDTO getCategoryById(@PathVariable Long id){
+        return categoryService.getCategoryById(id);
     }
 
     @PostMapping

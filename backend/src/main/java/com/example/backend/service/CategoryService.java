@@ -10,6 +10,7 @@ import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -31,6 +32,13 @@ public class CategoryService {
                 .stream()
                 .map(this::convertToResponse)
                 .toList();
+    }
+
+    public CategoryResponseDTO getCategoryById(Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
+
+        return convertToResponse(category);
     }
 
     public CategoryResponseDTO addCategory(CategoryRequestDTO dto){
