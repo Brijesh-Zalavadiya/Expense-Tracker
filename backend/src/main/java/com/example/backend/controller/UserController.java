@@ -1,5 +1,6 @@
 package com.example.backend.controller;
 
+import com.example.backend.dto.LoginRequestDTO;
 import com.example.backend.dto.UserRequestDTO;
 import com.example.backend.dto.UserResponseDTO;
 import com.example.backend.entity.User;
@@ -31,6 +32,11 @@ public class UserController {
     @PostMapping("/signup")
     public UserResponseDTO signup(@RequestBody UserRequestDTO dto){
         return userService.signup(dto);
+    }
+
+    @PostMapping("/login")
+    public UserResponseDTO login(@RequestBody LoginRequestDTO dto) {
+        return userService.login(dto);
     }
 
     @PatchMapping("/{id}")

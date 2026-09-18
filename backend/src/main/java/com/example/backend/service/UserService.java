@@ -1,5 +1,6 @@
 package com.example.backend.service;
 
+import com.example.backend.dto.LoginRequestDTO;
 import com.example.backend.dto.UserRequestDTO;
 import com.example.backend.dto.UserResponseDTO;
 import com.example.backend.entity.User;
@@ -47,6 +48,20 @@ public class UserService {
 
         User newUser = userRepository.save(existingUser);
         return convertToUserResponse(newUser);
+    }
+
+    public UserResponseDTO login(LoginRequestDTO dto) {
+
+        User user = userRepository.findByEmail(dto.getEmail())
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found")
+                );
+
+        if (!user.getPassword().equals(dto.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+
+        return convertToUserResponse(user);
     }
 
     public UserResponseDTO signup(UserRequestDTO dto){
