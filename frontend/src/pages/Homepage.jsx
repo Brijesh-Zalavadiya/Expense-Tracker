@@ -1,7 +1,16 @@
+
+import { useState } from 'react';
 import bg_1 from '../assets/bg_1.jpg';
 import Navbar from '../components/Navbar';
+import Login from './login';
+import Signup from './signup';
+
+
 
 const Homepage = () => {
+
+    const [auth, setAuth] = useState("Login");
+
     return (
         <div className="w-screen h-screen bg-gray-800">
             <Navbar />
@@ -11,6 +20,12 @@ const Homepage = () => {
                     alt="img"
                     className="w-1/2 h-full mask-r-from-10% opacity-50 object-cover"
                 />
+                <div className="justify-center items-center w-1/2 h-full flex">
+                    <Login />
+                </div>
+                <div className="justify-center items-center w-1/2 h-full flex">
+                    <Signup />
+                </div>
             </div>
         </div>
     );
