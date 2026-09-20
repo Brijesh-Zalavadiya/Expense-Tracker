@@ -4,7 +4,6 @@ import com.example.backend.dto.CategoryRequestDTO;
 import com.example.backend.dto.CategoryResponseDTO;
 import com.example.backend.entity.Category;
 import com.example.backend.entity.TransactionType;
-import com.example.backend.exception.GlobalExceptionHandler;
 import com.example.backend.exception.ResourceNotFoundException;
 import com.example.backend.repository.CategoryRepository;
 import org.springframework.stereotype.Service;

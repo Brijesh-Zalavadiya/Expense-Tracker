@@ -2,7 +2,6 @@ package com.example.backend.controller;
 
 import com.example.backend.dto.CategoryRequestDTO;
 import com.example.backend.dto.CategoryResponseDTO;
-import com.example.backend.entity.Category;
 import com.example.backend.entity.TransactionType;
 import com.example.backend.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
