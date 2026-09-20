@@ -1,13 +1,13 @@
 import React from 'react';
-
 const Navbar = () => {
     return (
         <div>
-            <div className="z-20 bg-gray-800 flex fixed w-full text-shadow-blue-50 text-center flex-col border-b-2 rounded-b-full border-gray-600 py-10">
-                <h2 className="text-4xl font-bold text text-blue-50 mt-5">
-                    Expense Tracker
+            <div className="z-20 bg-slate-950/90 backdrop-blur-md flex fixed w-full text-center flex-col border-b rounded-b-full border-slate-800 p-8 select-none">
+                <h2 className="text-3xl font-bold text-white tracking-tight">
+                    <span className="text-emerald-400">Expense</span>
+                    Tracker
                 </h2>
-                <p className="mt-3 text-gray-500 font-semibold">
+                <p className="mt-2 text-slate-500 text-sm font-medium">
                     Beware of little expenses. A small leak will sink a great
                     ship.
                 </p>
@@ -15,5 +15,4 @@ const Navbar = () => {
         </div>
     );
 };
-
 export default Navbar;
