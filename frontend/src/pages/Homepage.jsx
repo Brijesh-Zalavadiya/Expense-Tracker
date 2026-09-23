@@ -27,7 +27,7 @@ const Homepage = () => {
                         alt="Financial analytics background"
                         className="w-full h-full object-cover opacity-20 grayscale"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-950/80 to-slate-950" />
+                    <div className="absolute inset-0 bg-linear-to-r from-transparent via-slate-950/80 to-slate-950" />
                 </div>
 
                 {/* Left hero column */}
