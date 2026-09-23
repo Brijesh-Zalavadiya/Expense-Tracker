@@ -37,24 +37,40 @@ const Homepage = () => {
                     </div>
                     <h1 className="text-4xl xl:text-5xl font-bold text-white leading-tight tracking-tight">
                         Clarity over your income, <br />
-                        <span className="text-slate-400 font-normal">expenses, and cash flow.</span>
+                        <span className="text-slate-400 font-normal">
+                            expenses, and cash flow.
+                        </span>
                     </h1>
                     <p className="mt-4 text-slate-400 text-sm max-w-lg leading-relaxed">
-                        A clean, minimalist platform designed to organize financial records by month, year, and category with zero friction.
+                        A clean, minimalist platform designed to organize
+                        financial records by month, year, and category with zero
+                        friction.
                     </p>
 
                     <div className="mt-8 grid grid-cols-3 gap-3.5 max-w-lg">
                         <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/90">
-                            <div className="text-slate-200 font-semibold text-lg font-mono">100%</div>
-                            <div className="text-[11px] text-slate-500 mt-0.5">Local & Private</div>
+                            <div className="text-slate-200 font-semibold text-lg font-mono">
+                                100%
+                            </div>
+                            <div className="text-[11px] text-slate-500 mt-0.5">
+                                Local & Private
+                            </div>
                         </div>
                         <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/90">
-                            <div className="text-slate-200 font-semibold text-lg font-mono">Period</div>
-                            <div className="text-[11px] text-slate-500 mt-0.5">Month/Year Analysis</div>
+                            <div className="text-slate-200 font-semibold text-lg font-mono">
+                                Period
+                            </div>
+                            <div className="text-[11px] text-slate-500 mt-0.5">
+                                Month/Year Analysis
+                            </div>
                         </div>
                         <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/90">
-                            <div className="text-slate-200 font-semibold text-lg font-mono">Real-time</div>
-                            <div className="text-[11px] text-slate-500 mt-0.5">Automatic Calculations</div>
+                            <div className="text-slate-200 font-semibold text-lg font-mono">
+                                Real-time
+                            </div>
+                            <div className="text-[11px] text-slate-500 mt-0.5">
+                                Automatic Calculations
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -90,7 +106,9 @@ const Homepage = () => {
 
                         <div
                             key={auth}
-                            className={auth === 'Login' ? 'auth-login' : 'auth-signup'}
+                            className={
+                                auth === 'Login' ? 'auth-login' : 'auth-signup'
+                            }
                         >
                             {auth === 'Login' ? (
                                 <Login setAuth={setAuth} />
