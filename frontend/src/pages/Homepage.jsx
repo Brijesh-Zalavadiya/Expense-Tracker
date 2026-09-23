@@ -21,7 +21,6 @@ const Homepage = () => {
             <Navbar />
 
             <div className="flex-1 flex flex-col lg:flex-row items-center justify-center relative overflow-hidden">
-                {/* Background visual for larger screens */}
                 <div className="hidden lg:block lg:w-1/2 h-full absolute left-0 top-0 bottom-0 pointer-events-none">
                     <img
                         src={bg_1}

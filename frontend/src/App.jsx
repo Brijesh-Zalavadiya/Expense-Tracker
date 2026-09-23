@@ -7,7 +7,6 @@ import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Categories from './pages/Categories';
 
-// Helper component to guard private routes
 const ProtectedRoute = ({ children }) => {
     const user = localStorage.getItem('user');
     if (!user) {
@@ -16,7 +15,6 @@ const ProtectedRoute = ({ children }) => {
     return children;
 };
 
-// Helper component to redirect authenticated users away from auth pages
 const PublicOnlyRoute = ({ children }) => {
     const user = localStorage.getItem('user');
     if (user) {
@@ -29,7 +27,6 @@ const App = () => {
     return (
         <BrowserRouter>
             <Routes>
-                {/* Public & Landing routes */}
                 <Route
                     path="/"
                     element={
