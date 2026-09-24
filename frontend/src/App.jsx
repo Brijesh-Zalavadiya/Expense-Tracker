@@ -85,14 +85,6 @@ const App = () => {
                         </ProtectedRoute>
                     }
                 />
-                <Route
-                    path="/admin"
-                    element={
-                        <AdminRoute>
-                            <AdminPanel />
-                        </AdminRoute>
-                    }
-                />
 
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
