@@ -60,7 +60,7 @@ const App = () => {
                     }
                 />
 
-                {/* Protected Application routes */}
+
                 <Route
                     path="/dashboard"
                     element={
@@ -85,8 +85,15 @@ const App = () => {
                         </ProtectedRoute>
                     }
                 />
+                <Route
+                    path="/admin"
+                    element={
+                        <AdminRoute>
+                            <AdminPanel />
+                        </AdminRoute>
+                    }
+                />
 
-                {/* Catch-all redirect */}
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </BrowserRouter>
