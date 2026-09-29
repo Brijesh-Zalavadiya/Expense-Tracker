@@ -9,7 +9,7 @@ public class TransactionRequestDTO {
     private BigDecimal amount;
     private TransactionType type;
     private LocalDate transactionDate;
-    private String Description;
+    private String description;
 
     private Long userId;
     private Long categoryId;
@@ -42,11 +42,11 @@ public class TransactionRequestDTO {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public Long getUserId() {

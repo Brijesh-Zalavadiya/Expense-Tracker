@@ -44,6 +44,8 @@ const TransactionForm = ({ categories = [], userId, onSuccess, onCancel }) => {
             return;
         }
 
+        console.log(description);
+
         const payload = {
             amount: numericAmount,
             type: type,
